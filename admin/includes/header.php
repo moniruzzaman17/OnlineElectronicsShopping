@@ -10,6 +10,7 @@
 	include 'functions/init.php';
 
 		 $result 		=get_category();
+		 $sub_result	=get_sub_category();
 
 	logout(); 
 		$loged=true;
@@ -20,7 +21,7 @@
 	<div class="header_container">
 		<div class="header_top">
 			<div class="site_logo">
-				<img src="images/logo.png" alt="">
+				<img src="../images/logo.png" alt="">
 			</div>
 			<div class="site_title">
 				<h2>Online Electronics Shopping</h2>
@@ -36,7 +37,7 @@
 			<div class="cart_div">
 				<div class="cart_container">
 					<div class="cart_logo">
-						<a href="cart.php"><img style="width: 45px; height: 45px; margin: 7% 68%;" src="images/cart.png" alt=""></a>
+						<a href="cart.php"><img style="width: 45px; height: 45px; margin: 7% 68%;" src="../images/cart.png" alt=""></a>
 					</div>
 					<div class="cart_title">
 						<a href="cart.php">My Cart</a>
@@ -81,17 +82,13 @@
 						<?php
 							while ($row=mysqli_fetch_array($result)) { // fetching the each row of category table
 								$category_id=$row['category_id'];
-								$category_name=$row['category_name'];
-		 						$sub_result =get_sub_category($category_id);
 							 ?>
 							    <div class="sub_dropdown">
-							    <a class="sub_link" href="category_view.php?category_name=<?php echo $category_name; ?>"><?php echo $row['category_name']; ?></a>
+							    <a class="sub_link" href="#"><?php echo $row['category_name']; ?></a>
 								  <div class="sub_dropdown-content">
 									<?php
-										while ($row_sub=mysqli_fetch_array($sub_result)) {
-											$sub_category_name=$row_sub['sub_category_name'];
-										 ?>
-								  			<a class="sub_link" href="category_view.php?sub_category_name=<?php echo $sub_category_name; ?>"><?php echo $sub_category_name; ?></a>
+										while ($row_sub=mysqli_fetch_array($sub_result)) { ?>
+								  			<a class="sub_link" href="#"><?php echo $row_sub['sub_category_name']; ?></a>
 										<?php
 										}
 									?>
@@ -103,8 +100,9 @@
 					  </div> <!-- end of header_dropdown-content -->
 					</div> <!-- end of header_dropdown -->
 				  </li>
-				  <li><a href="#contact">Contact Us</a></li>
-				  <li><a href="#about">Terms & Conditions</a></li>
+				  <li><a href="insert_product.php">Insert product</a></li>
+				  <li><a href="insert_category.php">Insert Category</a></li>
+				  <li><a href="insert_sub_category.php">Insert sub-category</a></li>
 				  <li>
 					<?php 
 						if ($loged==true) { ?>

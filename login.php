@@ -1,3 +1,13 @@
+<?php
+	include 'functions/init.php';
+	login();
+	// $loged=false;
+	// if (isset($_SESSION['loged']) && empty($_SESSION['loged'])) {
+	// 	$loged=true;
+	// }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,11 +42,22 @@
 			<img src="images/logo.png" alt="">
 			<h1 align="center">Online Electronics Shopping Login</h1> <!-- Form Header -->
 		    	<p align="center">Please Follow the step for login</p>
+				<?php
+					if (!isset($_SESSION['msg']) || empty($_SESSION['msg'])) {
+						# code...
+					}
+					else{
+						?>
+						<h2 style="color: red;" align='center'><?php echo $_SESSION['msg']; ?></h2>
+						<?php
+						unset($_SESSION['msg']);
+					}
+				?>
 			    <hr>
 <!-- Code for Form -->
-			    <form action="" method="POST">
+			    <form action="" method="post">
 				    <label><b>Username/Email</b></label>
-		    		<input type="text" placeholder="Enter Email" name="mail" required>
+		    		<input type="text" placeholder="Enter userid or email" name="id_mail" required>
 
 		    		<label><b>Password</b></label>
 		    		<input type="password" placeholder="Enter Password" name="password" required>

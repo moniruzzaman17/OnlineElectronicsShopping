@@ -1,3 +1,8 @@
+<?php
+	include 'functions/init.php';
+	user_registration();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,21 +39,24 @@
 		    	<p align="center">Give the correct information to be registered user</p>
 			    <hr>
 <!-- Code for Form -->
-			    <form action="" method="POST">
+			    <form action="" method="post">
+				    <label><b>Full Name</b></label>
+		    		<input type="text" placeholder="Enter Full Name" name="name" required>
+
 				    <label><b>Username</b></label>
-		    		<input type="text" placeholder="Enter Email" name="mail" required>
-
-				    <label><b>Email</b></label>
-		    		<input type="text" placeholder="Enter Email" name="mail" required>
-
-				    <label><b>Contact Number</b></label>
-		    		<input type="text" placeholder="Enter Email" name="mail" required>
-
-				    <label><b>Address</b></label>
-		    		<input type="text" placeholder="Enter Email" name="mail" required>
+		    		<input type="text" placeholder="Enter Username" name="user_id" required>
 
 		    		<label><b>Password</b></label>
-		    		<input type="password" placeholder="Enter Password" name="password" required>
+		    		<input type="password" placeholder="create Password" name="password" required>
+
+				    <label><b>Email</b></label>
+		    		<input type="text" placeholder="Enter a valid Email" name="mail" required>
+
+				    <label><b>Contact Number</b></label>
+		    		<input type="text" placeholder="Enter phone number" name="contact" required>
+
+				    <label><b>Address</b></label>
+		    		<input type="text" placeholder="shipping address" name="address" required>
 				    <button type="submit" name="button1" class="registerbtn"><b>SIGN UP</b></button>
 				</form>  <!-- End of Form -->
 

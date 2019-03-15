@@ -740,3 +740,19 @@
 
 /*********************************/
 /*END of css for cart page*/
+
+
+/*css for product insert page*/
+.insert_product_container, .insert_category_container{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.product_insertion_box, .category_insertion_box{
+	margin-left: 25%;
+	margin-right: 25%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 2%;
+}
