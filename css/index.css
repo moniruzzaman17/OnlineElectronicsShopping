@@ -585,7 +585,7 @@
 
 .btn{
 	float: left;
-	width: 46%;
+	width: 100%;
 	height: 25px;
 }
 
@@ -706,9 +706,9 @@
   padding: 8px;
 }
 
-.cart_table tr:nth-child(even){
+/*.cart_table tr:nth-child(even){
 	background-color: #f2f2f2;
-}
+}*/
 
 .cart_table tr{
 	text-align: center;

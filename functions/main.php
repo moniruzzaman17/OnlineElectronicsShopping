@@ -122,4 +122,5 @@
 		$result=query($sql);
 		return $result;
 	}
+
 ?>

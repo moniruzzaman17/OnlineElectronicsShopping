@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -56,9 +56,9 @@
 							<div class="btn">
 								<a href="view.php?product_id=<?php echo $p_id; ?>">view</a>
 							</div>
-							<div class="btn">
+							<!-- <div class="btn">
 								<a href="">add to cart</a>
-							</div>
+							</div> -->
 						</div>  <!-- END of product btn -->
 					</div>  <!-- END of collection -->
 				<?php
@@ -85,9 +85,9 @@
 								<div class="btn">
 									<a href="view.php?product_id=<?php echo $p_id; ?>">view</a>
 								</div>
-								<div class="btn">
+								<!-- <div class="btn">
 									<a href="">add to cart</a>
-								</div>
+								</div> -->
 							</div>  <!-- END of product btn -->
 						</div>  <!-- END of collection -->
 					<?php

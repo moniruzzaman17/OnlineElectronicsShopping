@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Online Electronics Shopping System</title>
 	<link rel="stylesheet" href="../css/index.css">
+ 	<script src='js/jquery.min.js'></script>
 </head>
 <body>
 	<?php 
@@ -38,9 +39,34 @@
 					<div class="cart_logo">
 						<a href="cart.php"><img style="width: 45px; height: 45px; margin: 7% 68%;" src="images/cart.png" alt=""></a>
 					</div>
-					<div class="cart_title">
-						<a href="cart.php">My Cart</a>
-					</div>
+					<?php
+						if (isset($_SESSION['cart_qty']) || !empty($_SESSION['cart_qty'])) { ?>
+						<div id="refresh" class="cart_title">
+							<a href="cart.php">My Cart</a>
+							<?php
+								if ($_SESSION['cart_qty'] !=0) { ?>
+								<p style="color: #E83F33; margin: -14% 40%; font-weight: bold; font-size: 22px;">(<?php echo $_SESSION['cart_qty']; ?>)</p>
+								<?php
+								}
+								else
+								{ ?>
+
+								<p style="color: #4CAF50; margin: -14% 40%; font-weight: bold; font-size: 22px;">(<?php echo $_SESSION['cart_qty']; ?>)</p>
+								<?php
+								}
+							?>
+						</div>
+						<?php
+						}
+						else
+						{ ?>
+						<div class="cart_title">
+							<a href="cart.php">My Cart</a>
+								<p style="color: #4CAF50; margin: -14% 40%; font-weight: bold; font-size: 22px;">(0)</p>
+						</div>
+						<?php
+						}
+					?>
 				</div>
 			</div>
 			<div class="log_btn">
@@ -117,5 +143,10 @@
 			</div> <!-- end of navbar -->
 		</div> <!-- end of header_down -->
 	</div> <!-- end of header_container -->
+	<script>
+		setInterval(function() {
+    	$("#refresh").load(location.href+" #refresh>*","");
+		}, 500); // seconds to wait, miliseconds
+	</script>
 </body>
 </html>

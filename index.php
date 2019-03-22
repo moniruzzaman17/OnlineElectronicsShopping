@@ -33,12 +33,12 @@
 							 ?>
 							<li>
 								<div class="dropdown">
-									<a class="dropbtn" href=""><?php echo $row['category_name']; ?></a>
+									<a class="dropbtn" href="category_view.php?category_name=<?php echo $category_name; ?>"><?php echo $row['category_name']; ?></a>
 									<div class="dropdown-content">
 										<!-- making loop for showing all the sub category under the main category -->
 										<?php
 											while ($row_sub=mysqli_fetch_array($sub_result)) { ?>
-									  			<a href="#"><?php echo $row_sub['sub_category_name']; ?></a>
+									  			<a href="category_view.php?category_name=<?php echo $sub_category_name; ?>"><?php echo $row_sub['sub_category_name']; ?></a>
 											<?php
 											}
 										?>
@@ -106,6 +106,7 @@
 
 			<?php
 				while ($new_c_row=mysqli_fetch_array($new_collection_result)) { 
+					$p_id=$new_c_row['p_id'];
 					$product_name=$new_c_row['product_name'];
 					$product_price=$new_c_row['product_price'];
 					$product_image=$new_c_row['product_image'];
@@ -120,11 +121,13 @@
 						</div>  <!-- END of product info -->
 						<div class="product_btn">
 							<div class="btn">
-								<a href="">view</a>
+								<a href="view.php?product_id=<?php echo $new_c_row['p_id']; ?>">view</a>
 							</div>
-							<div class="btn">
-								<a href="">add to cart</a>
-							</div>
+							<!-- <div class="btn">
+								<form action="cart.php" method="post">
+									<button> add to cart</button>
+								</form>
+							</div> -->
 						</div>  <!-- END of product btn -->
 					</div>  <!-- END of collection -->
 				<?php
@@ -155,11 +158,11 @@
 						</div>  <!-- END of product info -->
 						<div class="product_btn">
 							<div class="btn">
-								<a href="">view</a>
-							</div>
+								<a href="view.php?product_id=<?php echo $all_p_row['p_id']; ?>">view</a>
+							</div><!-- 
 							<div class="btn">
 								<a href="">add to cart</a>
-							</div>
+							</div> -->
 						</div>  <!-- END of product btn -->
 					</div>  <!-- END of collection -->
 				<?php

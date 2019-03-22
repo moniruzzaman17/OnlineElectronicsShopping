@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>view details</title>
 	<!-- link to the css -->
 	<link rel="stylesheet" href="css/index.css">
@@ -43,14 +43,18 @@
 				<hr class="hr_for_viewpage">
 				<br>
 				<br>
-				<label for="">Quantity</label>
-				<!-- this input type value minimum is 1 and maximum is same as the product quantity -->
-				<input type="number" min="1" max="<?php echo $quantity; ?>" value="1">
-				<br>
-				<br>
-				<!-- creating a form to submit data to the cart -->
 				<form action="cart.php" method="post">
-					<button class="add_cart_btn">Add to Cart</button>
+					<label for="">Quantity</label>
+					<!-- this input type value minimum is 1 and maximum is same as the product quantity -->
+					<input type="number" name="p_qty" min="1" max="<?php echo $quantity; ?>" value="1">
+					<br>
+					<br>
+				<!-- creating a form to submit data to the cart -->
+					<input type="hidden" name="p_id" value="<?php echo $p_id; ?>">
+					<input type="hidden" name="p_name" value="<?php echo $p_name; ?>">
+					<input type="hidden" name="p_price" value="<?php echo $p_price; ?>">
+					<input type="hidden" name="p_image" value="<?php echo $p_image; ?>">
+					<button name="add_to_cart" class="add_cart_btn">Add to Cart</button>
 				</form>
 			</div> <!-- END of product_details_info -->
 		</div> <!-- END of product_info_div -->
