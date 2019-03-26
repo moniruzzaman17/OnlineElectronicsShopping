@@ -28,7 +28,7 @@
 	}
 
 	// login function
-	function login()
+	function login($check)
 	{
 		if ($_SERVER['REQUEST_METHOD']=="POST")
 		{
@@ -45,13 +45,32 @@
 
 			if ($password==$pass && $u_id==$id_or_mail || $email==$id_or_mail) {
 				$_SESSION['loged']=true;
-				echo "<script>window.location='index.php'</script>";
+				$_SESSION['current_user_uid_or_mail']=$id_or_mail;
+				if ($check=="none") {
+					echo "<script>window.location='index.php'</script>";
+				}
+				else
+				{
+					echo "<script>window.location='order.php'</script>";	
+				}
 			}
 
 			else {
 				$_SESSION['msg']="Record not matched!!";
 			}
 		}
+	}
+
+	function current_userid()
+	{
+		$id_mail=$_SESSION['current_user_uid_or_mail'];
+
+		$sql 		= "SELECT * FROM user_info WHERE user_id='$id_mail' OR email='$id_mail'";
+		$result		=query($sql);
+		$row		=fetch_array($result);
+		$user_id 	=$row['user_id'];
+		return $user_id;
+
 	}
 
 	// logout function
@@ -110,17 +129,92 @@
 	// get new collection product
 	function get_new_collection_product()
 	{
-		$sql = "SELECT * FROM product_info ORDER BY p_id DESC limit 4";
-		$result=query($sql);
+		$sql 		= "SELECT * FROM product_info ORDER BY p_id DESC limit 4";
+		$result		=query($sql);
 		return $result;
 	}
 
 	// get new product details
 	function get_product_details($p_id)
 	{
-		$sql = "SELECT * FROM product_info WHERE p_id='$p_id'";
-		$result=query($sql);
+		$sql		= "SELECT * FROM product_info WHERE p_id='$p_id'";
+		$result		=query($sql);
 		return $result;
+	}
+
+	// get current user information
+	function get_current_user_info($uid_mail)
+	{
+		$sql 		= "SELECT * FROM user_info WHERE user_id='$uid_mail' OR email='$uid_mail'";
+		$result		=query($sql);
+		$row		=fetch_array($result);
+		return $row;
+	}
+
+	// confirm order with order details
+	function confirm_order()
+	{
+		if ($_SERVER['REQUEST_METHOD']=="POST") 
+		{
+			if (isset($_POST['confirm_btn'])) 
+			{
+				$user_id		=	current_userid();
+				$current_date	=	date("Y-m-d");
+				$cus_name		=	$_POST['cus_name'];
+				$ship_address	=	$_POST['shipping_add'];
+				// $email			=	$_POST['email'];
+				// $phn_num		=	$_POST['cus_num'];
+				$total_amount	=	$_POST['total_price'];
+
+				if (isset($_POST['transaction_id']) && !empty($_POST['transaction_id'])) {
+					$p_method		=	"B-Kash";
+					$transaction_id	=	$_POST['transaction_id'];
+				}
+				else
+				{
+					$p_method		=	$_POST['p_method'];
+					$transaction_id	=	"N/A";
+				}
+
+
+				$sql= "INSERT INTO order_details(order_date,cus_id,cus_name,ship_address,payment_type,transaction_id,total_amount)";
+					$sql.=" VALUES('$current_date','$user_id','$cus_name','$ship_address','$p_method','$transaction_id', '$total_amount')";
+
+				$result=query($sql);
+
+				$sql2 		= "SELECT * FROM order_details ORDER BY order_id DESC LIMIT 1";
+				$result2	=query($sql2);
+				$row2		=fetch_array($result2);
+				// geting last inserted order id for storing again into order item
+				$order_id 	=$row2['order_id']; 
+
+
+				foreach ($_SESSION["cart"] as $item) 
+				{
+					$sub_total=$item['p_qty'] * $item['price'];
+					$sql3= "INSERT INTO order_item(order_id,product_id,product_name,quantity,unit_price,sub_total)";
+						$sql3.=" VALUES('$order_id','".$item['product_id']."','".$item['p_name']."','".$item['p_qty']."','".$item['price']."','$sub_total')";
+
+					$result3=query($sql3);
+				}
+				if ($result && $result3) {
+					unset($_SESSION["cart"]);
+					unset($_SESSION['cart_qty']);
+					echo "<script>window.location='confirm_order_notification.php'</script>";
+					
+				}
+			}
+		}
+	}
+
+	function get_last_order_id()
+	{
+		$user_id 	= current_userid();
+		$sql 		= "SELECT * FROM order_details WHERE cus_id='$user_id' ORDER BY order_id DESC LIMIT 1";
+		$result		=query($sql);
+		$row		=fetch_array($result);
+		$oid 		=$row['order_id'];
+		return $oid;
 	}
 
 ?>

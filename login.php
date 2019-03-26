@@ -1,6 +1,13 @@
 <?php
 	include 'functions/init.php';
-	login();
+	if (isset($_GET['oss'])) {
+		login($_GET['oss']);
+	}
+	else
+	{
+		$none="none";
+		login($none);
+	}
 	// $loged=false;
 	// if (isset($_SESSION['loged']) && empty($_SESSION['loged'])) {
 	// 	$loged=true;

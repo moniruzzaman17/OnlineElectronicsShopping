@@ -74,6 +74,7 @@
 		<div class="table_container">
 		<table class="cart_table">
 			<thead>
+				<th>Sl.</th>
 				<th>Image</th>
 				<th>Product Code</th>
 				<th>Product Name</th>
@@ -85,23 +86,24 @@
 			<tbody>
 <?php
 $tp2 = 0;
+$sl=1;
 
 foreach ($_SESSION["cart"] as $item)
 {
-  
   $id = $item['product_id'];
   $tp = $item['p_qty'] * $item['price'];
   $tp2 += $tp;
 
 ?>
 				<tr>
+					<td><?php echo $sl++; ?></td>
 					<td><img style="width: 100px; height: 100px;" src="uploads/<?php echo $item['p_image']; ?>" alt="Product Image"></td>
 					<td><?php echo $item['product_id']; ?></td>
 					<td><?php echo $item['p_name']; ?></td>
 					<!-- <td><?php // echo $item['p_qty']; ?></td> -->
 					<td><?php echo $item['p_qty']; ?></td>
-					<td><?php echo $item['price']; ?></td>
-					<td><?php echo $tp; ?></td>
+					<td><span>&#2547;</span> <?php echo $item['price']; ?></td>
+					<td><span>&#2547;</span> <?php echo $tp; ?></td>
 					<td><a href ='cart.php?action&id=<?php echo $id; ?>'> Remove </a></td>
 				</tr>
 <?php
@@ -112,13 +114,14 @@ $_SESSION['cart_qty']=count($_SESSION["cart"]);
 			</tbody> <!-- END of the tbody -->
 
 			<thead>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th style="border:none;"></th>
+				<th style="border:none;"></th>
+				<th style="border:none;"></th>
+				<th style="border:none;"></th>
+				<th style="border:none;"></th>
 				<th>Grand Total=</th>
-				<th><?php echo $tp2; ?> tk</th>
-				<th></th>
+				<th><span>&#2547;</span> <?php echo $tp2; ?></th>
+				<th style="border:none;"></th>
 			</thead> <!-- END of the thead -->
 		</table> <!-- END of the table -->
 		</div> <!-- END of the table_container -->
@@ -131,7 +134,7 @@ $_SESSION['cart_qty']=count($_SESSION["cart"]);
 	      if(!empty($_SESSION['cart']))
 	      { ?>
 	  
-		<form action="cart.php" method="post">
+		<form action="order.php" method="post">
 			<button class="continue_shopping_btn">Continue Shopping</button>
 		</form>
 	  
