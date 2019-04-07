@@ -9,7 +9,6 @@
 </head>
 <body>
 	<?php 
-		include 'includes/header.php';
 		 $result 		=get_category();
 		 $sub_result	=get_sub_category();
 		 insert_product();
@@ -90,6 +89,5 @@ $('#subcategoryValue').val(otherValue);
 
 
 </script>
-<?php include 'includes/footer.php'; ?>
 </body>
 </html>

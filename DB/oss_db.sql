@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- হোষ্ট: 127.0.0.1
--- তৈরী করতে ব্যবহৃত সময়: মার 26, 2019 at 09:08 ???????
--- সার্ভার সংস্করন: 10.1.13-MariaDB
--- পিএইছপির সংস্করন: 7.0.8
+-- তৈরী করতে ব্যবহৃত সময়: মার 29, 2019 at 07:14 PM
+-- সার্ভার সংস্করন: 10.1.31-MariaDB
+-- পিএইছপির সংস্করন: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- ডাটাবেইজ: `oss_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- টেবলের জন্য টেবলের গঠন `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(225) NOT NULL,
+  `admin_name` varchar(225) NOT NULL,
+  `admin_id` varchar(225) NOT NULL,
+  `email` varchar(225) NOT NULL,
+  `password` varchar(225) NOT NULL,
+  `contact_num` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- টেবলের জন্য তথ্য স্তুপ করছি `admin`
+--
+
+INSERT INTO `admin` (`id`, `admin_name`, `admin_id`, `email`, `password`, `contact_num`) VALUES
+(1, 'Asha Moni', 'asha123', 'asha123@gmail.com', '123456', '01574125411');
 
 -- --------------------------------------------------------
 
@@ -94,7 +118,7 @@ INSERT INTO `order_item` (`oitem_id`, `order_id`, `product_id`, `product_name`, 
 (1, '1', '6', 'Headphone', 1, 850, 850, 0),
 (2, '2', '3', 'C1 Smart Watch', 2, 1200, 2400, 0),
 (3, '2', '5', 'Digital Watch', 1, 2300, 2300, 0),
-(4, '3', '1', 'Samsung 32" LED TV', 1, 14000, 14000, 0);
+(4, '3', '1', 'Samsung 32\" LED TV', 1, 14000, 14000, 0);
 
 -- --------------------------------------------------------
 
@@ -118,9 +142,9 @@ CREATE TABLE `product_info` (
 --
 
 INSERT INTO `product_info` (`p_id`, `product_name`, `product_category`, `product_sub_category`, `product_details`, `quantity`, `product_price`, `product_image`) VALUES
-(1, 'Samsung 32" LED TV', 'Television', 'LED TV', 'This is 32 inch Samsung LED Television, brand new 5 year warranty.', 2, 14000, '91hQL+d6bML._SX425_.jpg'),
-(2, 'V8 Smart Watch', 'Watch', 'Smart Watch', 'Display: 1.54" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1500, 'v8 Smart Watch.jpg'),
-(3, 'C1 Smart Watch', 'Watch', 'Smart Watch', 'Display: 1.54" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1200, 'c1 Smart Watch.jpg'),
+(1, 'Samsung 32\" LED TV', 'Television', 'LED TV', 'This is 32 inch Samsung LED Television, brand new 5 year warranty.', 2, 14000, '91hQL+d6bML._SX425_.jpg'),
+(2, 'V8 Smart Watch', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1500, 'v8 Smart Watch.jpg'),
+(3, 'C1 Smart Watch', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1200, 'c1 Smart Watch.jpg'),
 (4, 'CRT TV', 'Television', 'LCD TV', 'ব্র্যান্ড: DEIL\nটিভি মনিটরের সাথে রয়েছে ২ টি বিল্ট-ইন স্পীকার।\nডিসপ্লে সাইজঃ ২০ ইঞ্চি।\nকোন প্রকার নেগেটিভ লুক নেই।\nফুল HD পিকচার 1080 p (1366 x 766 প্রগ্রেসিভ স্ক্যান)\nডিজিটাল সাউন্ড সিস্টেম।\nপোর্টঃ USB/পেনড্রাইভ,VGA,HDMI,Audio,DVD\nআউটপুট/ tv ইনট্যাক্ট প্রোডাক্ট।\nকম্পিউটারের মনিটর হিসেবেও ব্যবহার করা যাবে।\nসকল পার্টস ১ বছরের রিপ্লেসমেন্ট গ্যারান্টিসহ মোট ২ বছর ওয়ারেন্টি।\nঢাকার মধ্যে ক্যাশ অন ডেলিভারী এবং অন্যত্র কুরিয়ার ডেলিভারী এক্ষেত্রে ৫০০ টাকা অগ্রীম প্রযোজ্য।', 5, 7500, 'item_XL_12124511_18306164.jpg'),
 (5, 'Digital Watch', 'Watch', 'Digital Watch', 'Black ion-plated stainless steel watch featuring round dial with world time for 39 cities, LCD display, and scrolling display mode\r\nQuartz movement with digital display\r\nMineral crystal dial window\r\nFeatures buckle closure, 14-character message display, calendar, 1/100-second stopwatch with memory recall, and countdown timer\r\nWater-resistant to 330 feet (100 M): suitable for snorkeling, as well as swimming, but not diving', 7, 2300, 'sswww.jpg'),
 (6, 'Headphone', 'Gadget', 'Head Phone', ' Headphones Over Ear Kids Headphones with Microphone Volume Control Lightweight with Detachable 3.5mm Cable for Smartphone Tablets Laptop (Black/Blue)', 6, 850, '715SbGPU6mL._SX355_.jpg');
@@ -167,21 +191,26 @@ CREATE TABLE `user_info` (
   `password` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `contact_num` varchar(255) NOT NULL,
-  `address` text NOT NULL,
-  `status` varchar(225) NOT NULL
+  `address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- টেবলের জন্য তথ্য স্তুপ করছি `user_info`
 --
 
-INSERT INTO `user_info` (`id`, `name`, `user_id`, `password`, `email`, `contact_num`, `address`, `status`) VALUES
-(1, 'Asha Moni', 'asha123', '123456', 'asha123@gmail.com', '0151245887451', 'Mohakhali, Dhaka', 'admin'),
-(2, 'Md. Moniruzzaman', 'moon199715', '123456', 'moon199715@yahoo.com', '01761189963', 'Uttara, Dhaka', 'user');
+INSERT INTO `user_info` (`id`, `name`, `user_id`, `password`, `email`, `contact_num`, `address`) VALUES
+(1, 'Asha Moni', 'asha123', '123456', 'asha123@gmail.com', '0151245887451', 'Mohakhali, Dhaka'),
+(2, 'Md. Moniruzzaman', 'moon199715', '123456', 'moon199715@yahoo.com', '01761189963', 'Uttara, Dhaka');
 
 --
 -- স্তুপকৃত টেবলের ইনডেক্স
 --
+
+--
+-- টেবিলের ইনডেক্সসমুহ `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- টেবিলের ইনডেক্সসমুহ `category`
@@ -224,35 +253,48 @@ ALTER TABLE `user_info`
 --
 
 --
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `category`
 --
 ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `order_details`
 --
 ALTER TABLE `order_details`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `order_item`
 --
 ALTER TABLE `order_item`
   MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `product_info`
 --
 ALTER TABLE `product_info`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `sub_category`
 --
 ALTER TABLE `sub_category`
   MODIFY `sub_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `user_info`
 --
 ALTER TABLE `user_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

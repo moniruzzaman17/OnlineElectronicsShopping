@@ -14,7 +14,7 @@
 
 	logout(); 
 		$loged=true;
-		if (!isset($_SESSION['loged']) && empty($_SESSION['loged'])) {
+		if (!isset($_SESSION['admin_loged']) && empty($_SESSION['admin_loged'])) {
 			$loged=false;
 		}
 	?>
@@ -58,7 +58,6 @@
 						else
 						{ ?>
 							<a href="login.php">Login</a>
-							<a href="signup.php">Signup</a>
 						<?php
 						}
 					?>
@@ -68,49 +67,18 @@
 		</div> <!-- end of header_top -->
 		<div class="header_down">
 			<div class="statement_div">
-				<h2>Make Your Shopping More Easy</h2>
+				<h2>WELCOME to Admin Panel</h2>
 				
 			</div>
 			<div class="navbar">
 				<ul>
-				  <li><a class="active" href="index.php">Home</a></li>
-				  <li>
-				  	<div class="header_dropdown">
-				  	<a href="#news">Category</a>
-					  <div class="header_dropdown-content">
-						<!-- making loop for showing all the category -->
-						<?php
-							while ($row=mysqli_fetch_array($result)) { // fetching the each row of category table
-								$category_id=$row['category_id'];
-							 ?>
-							    <div class="sub_dropdown">
-							    <a class="sub_link" href="#"><?php echo $row['category_name']; ?></a>
-								  <div class="sub_dropdown-content">
-									<?php
-										while ($row_sub=mysqli_fetch_array($sub_result)) { ?>
-								  			<a class="sub_link" href="#"><?php echo $row_sub['sub_category_name']; ?></a>
-										<?php
-										}
-									?>
-								  </div> <!-- end of sub_dropdown-content -->
-								</div> <!-- end of sub_dropdown -->
-						<?php
-						}
-						?>
-					  </div> <!-- end of header_dropdown-content -->
-					</div> <!-- end of header_dropdown -->
-				  </li>
-				  <li><a href="insert_product.php">Insert product</a></li>
-				  <li><a href="insert_category.php">Insert Category</a></li>
-				  <li><a href="insert_sub_category.php">Insert sub-category</a></li>
-				  <li>
 					<?php 
 						if ($loged==true) { ?>
-				  			<a href="#about">Profile</a>
+				  	<li><a class="active" href="index.php">Home</a></li>
+				  	<li><a href="#about">Profile</a></li>
 						<?php
 						}
 					?>
-				  </li>
 				</ul>
 			</div> <!-- end of navbar -->
 		</div> <!-- end of header_down -->

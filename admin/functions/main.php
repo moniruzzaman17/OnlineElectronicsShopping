@@ -29,7 +29,34 @@
 	}
 	}
 
+	function admin_login()
+	{
+		if ($_SERVER['REQUEST_METHOD']=="POST")
+		{
+			if (isset($_POST['button1'])) {
+				$id_or_mail	=	$_POST['id_mail'];
+				$pass		=	$_POST['password'];
 
+				
+				$sql = "SELECT * FROM admin WHERE password='$pass' AND admin_id='$id_or_mail' OR email='$id_or_mail'";
+				$result=query($sql);
+	  			$row = fetch_array($result);
+	  			$u_id=$row['admin_id'];
+	  			$email=$row['email'];
+	  			$password=$row['password'];
+
+				if ($password==$pass && $u_id==$id_or_mail || $email==$id_or_mail) {
+					$_SESSION['admin_loged']=true;
+
+						echo "<script>window.location='admin_dashboard.php'</script>";
+				}
+
+				else {
+					$_SESSION['msg']="Record not matched!!";
+				}
+			}
+		}
+	}
 
 	// get category function
 	function get_category()
@@ -101,6 +128,35 @@
 					echo "<script>alert('not added!!'); window.location='insert_sub_category.php'</script>";
 				}
 		}
+	}
+
+	function get_order_approval_info()
+	{
+		$sql = "SELECT * FROM order_details ORDER BY order_id DESC";
+		$result=query($sql);
+		return $result;
+	}
+
+	function get_orderd_customer_info($oid)
+	{
+		$sql = "SELECT * FROM user_info, order_details WHERE order_details.order_id='$oid' AND order_details.cus_id=user_info.user_id";
+		$result=query($sql);
+		$row= fetch_array($result);
+		return $row;
+	}
+
+	function get_orderd_product_info($oid)
+	{
+		$sql = "SELECT * FROM order_item, order_details WHERE order_details.order_id='$oid' AND order_details.order_id=order_item.order_id";
+		$result=query($sql);
+		return $result;
+	}
+
+	function get_product_info()
+	{
+		$sql = "SELECT * FROM product_info";
+		$result=query($sql);
+		return $result;
 	}
 
 ?>

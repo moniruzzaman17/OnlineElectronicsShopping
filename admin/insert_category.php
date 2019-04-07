@@ -8,7 +8,6 @@
 </head>
 <body>
 	<?php 
-		include 'includes/header.php';
 		insert_category();
 	 ?>
 	<div class="insert_category_container">

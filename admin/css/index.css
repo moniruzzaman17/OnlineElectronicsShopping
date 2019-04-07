@@ -750,9 +750,59 @@
 }
 
 .product_insertion_box, .category_insertion_box{
-	margin-left: 25%;
-	margin-right: 25%;
+	margin-left: 15%;
+	margin-right: 15%;
 	padding-left: 5%;
 	padding-right: 5%;
-	padding-top: 2%;
+}
+
+/*css for admin dashboard*/
+.ad_container{
+	margin: 0;
+	padding: 0;
+}
+
+.dsinfo_container{
+	width: 100%;
+	margin: auto;
+}
+
+.db_side_bar{
+	float: left;
+	width: 20%;
+	background-color: rgba(76, 175, 80, 0.5);
+	padding: 1%;
+	padding-right: 4%;
+	box-shadow:  0 0 10px  rgba(0,0,0,0.7);
+	margin-top: 1%;
+	margin-bottom: 5%;
+	height: 500px;
+}
+
+.db_side_bar ul{
+	list-style-type: none;
+}
+
+.db_side_bar ul li{
+	border: 1px solid gray;
+	padding: 4%;
+	box-shadow:  0 0 10px  rgba(0,0,0,0.7);
+}
+
+.db_side_bar ul li a{
+	text-decoration: none;
+	display: block;
+	color: black;
+	font-size: 18px;
+}
+
+.db_side_bar ul li:hover{
+	background-color: #E83F33;
+}
+
+.db_page_container{
+	float: left;
+	width: 74%;
+	margin-top: 1%;
+	margin-left: 1%;
 }

@@ -41,19 +41,19 @@
 <!-- Code for Form -->
 			    <form action="" method="post">
 				    <label><b>Full Name</b></label>
-		    		<input type="text" placeholder="Enter Full Name" name="name" required>
+		    		<input type="text" placeholder="Enter Full Name" name="name" pattern="^[A-Z][ a-zA-Z]+$" title="First Letter must be upper case and only space and characters are allowed" required>
 
 				    <label><b>Username</b></label>
-		    		<input type="text" placeholder="Enter Username" name="user_id" required>
+		    		<input type="text" placeholder="Enter Username" name="user_id" pattern="^[a-z][a-z_]{1,20}[0-9]{1,15}$" title="start with at least 2 lower case and end with number, allowed only a-z,_,0-9" required>
 
 		    		<label><b>Password</b></label>
-		    		<input type="password" placeholder="create Password" name="password" required>
+		    		<input type="password" placeholder="create Password" name="password" pattern="^[a-zA-Z0-9 .@#$%&*]{6,30}$" required>
 
 				    <label><b>Email</b></label>
-		    		<input type="text" placeholder="Enter a valid Email" name="mail" required>
+		    		<input type="text" placeholder="Enter a valid Email" name="mail" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" title="Make sure a valid mail address" required>
 
 				    <label><b>Contact Number</b></label>
-		    		<input type="text" placeholder="Enter phone number" name="contact" required>
+		    		<input type="text" placeholder="Enter phone number" name="contact" pattern="^[0-9]" title="Only accept numarical value" required>
 
 				    <label><b>Address</b></label>
 		    		<input type="text" placeholder="shipping address" name="address" required>
