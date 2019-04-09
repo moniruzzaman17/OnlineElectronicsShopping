@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- হোষ্ট: 127.0.0.1
--- তৈরী করতে ব্যবহৃত সময়: মার 29, 2019 at 07:14 PM
--- সার্ভার সংস্করন: 10.1.31-MariaDB
--- পিএইছপির সংস্করন: 7.2.3
+-- Host: 127.0.0.1
+-- Generation Time: Apr 09, 2019 at 01:57 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.1.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- ডাটাবেইজ: `oss_db`
+-- Database: `oss_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `admin_name`, `admin_id`, `email`, `password`, `contact_num`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `admin` (`id`, `admin_name`, `admin_id`, `email`, `password`, `conta
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -56,7 +56,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `order_details`
+-- Table structure for table `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -85,7 +85,7 @@ CREATE TABLE `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `order_details`
+-- Dumping data for table `order_details`
 --
 
 INSERT INTO `order_details` (`order_id`, `order_date`, `cus_id`, `cus_name`, `ship_address`, `payment_type`, `transaction_id`, `total_amount`, `approve_status`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `order_details` (`order_id`, `order_date`, `cus_id`, `cus_name`, `sh
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `order_item`
+-- Table structure for table `order_item`
 --
 
 CREATE TABLE `order_item` (
@@ -107,14 +107,14 @@ CREATE TABLE `order_item` (
   `quantity` int(225) NOT NULL,
   `unit_price` int(255) NOT NULL,
   `sub_total` int(225) NOT NULL,
-  `aprove_status` int(225) NOT NULL DEFAULT '0'
+  `approve_status` int(225) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `order_item`
+-- Dumping data for table `order_item`
 --
 
-INSERT INTO `order_item` (`oitem_id`, `order_id`, `product_id`, `product_name`, `quantity`, `unit_price`, `sub_total`, `aprove_status`) VALUES
+INSERT INTO `order_item` (`oitem_id`, `order_id`, `product_id`, `product_name`, `quantity`, `unit_price`, `sub_total`, `approve_status`) VALUES
 (1, '1', '6', 'Headphone', 1, 850, 850, 0),
 (2, '2', '3', 'C1 Smart Watch', 2, 1200, 2400, 0),
 (3, '2', '5', 'Digital Watch', 1, 2300, 2300, 0),
@@ -123,7 +123,7 @@ INSERT INTO `order_item` (`oitem_id`, `order_id`, `product_id`, `product_name`, 
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `product_info`
+-- Table structure for table `product_info`
 --
 
 CREATE TABLE `product_info` (
@@ -138,7 +138,7 @@ CREATE TABLE `product_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `product_info`
+-- Dumping data for table `product_info`
 --
 
 INSERT INTO `product_info` (`p_id`, `product_name`, `product_category`, `product_sub_category`, `product_details`, `quantity`, `product_price`, `product_image`) VALUES
@@ -152,7 +152,7 @@ INSERT INTO `product_info` (`p_id`, `product_name`, `product_category`, `product
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `sub_category`
+-- Table structure for table `sub_category`
 --
 
 CREATE TABLE `sub_category` (
@@ -162,7 +162,7 @@ CREATE TABLE `sub_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `sub_category`
+-- Dumping data for table `sub_category`
 --
 
 INSERT INTO `sub_category` (`sub_category_id`, `category_id`, `sub_category_name`) VALUES
@@ -181,7 +181,7 @@ INSERT INTO `sub_category` (`sub_category_id`, `category_id`, `sub_category_name
 -- --------------------------------------------------------
 
 --
--- টেবলের জন্য টেবলের গঠন `user_info`
+-- Table structure for table `user_info`
 --
 
 CREATE TABLE `user_info` (
@@ -195,7 +195,7 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- টেবলের জন্য তথ্য স্তুপ করছি `user_info`
+-- Dumping data for table `user_info`
 --
 
 INSERT INTO `user_info` (`id`, `name`, `user_id`, `password`, `email`, `contact_num`, `address`) VALUES
@@ -203,93 +203,93 @@ INSERT INTO `user_info` (`id`, `name`, `user_id`, `password`, `email`, `contact_
 (2, 'Md. Moniruzzaman', 'moon199715', '123456', 'moon199715@yahoo.com', '01761189963', 'Uttara, Dhaka');
 
 --
--- স্তুপকৃত টেবলের ইনডেক্স
+-- Indexes for dumped tables
 --
 
 --
--- টেবিলের ইনডেক্সসমুহ `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- টেবিলের ইনডেক্সসমুহ `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- টেবিলের ইনডেক্সসমুহ `order_details`
+-- Indexes for table `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- টেবিলের ইনডেক্সসমুহ `order_item`
+-- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
   ADD PRIMARY KEY (`oitem_id`);
 
 --
--- টেবিলের ইনডেক্সসমুহ `product_info`
+-- Indexes for table `product_info`
 --
 ALTER TABLE `product_info`
   ADD PRIMARY KEY (`p_id`);
 
 --
--- টেবিলের ইনডেক্সসমুহ `sub_category`
+-- Indexes for table `sub_category`
 --
 ALTER TABLE `sub_category`
   ADD PRIMARY KEY (`sub_category_id`);
 
 --
--- টেবিলের ইনডেক্সসমুহ `user_info`
+-- Indexes for table `user_info`
 --
 ALTER TABLE `user_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- স্তুপকৃত টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `order_details`
+-- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `order_item`
+-- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `product_info`
+-- AUTO_INCREMENT for table `product_info`
 --
 ALTER TABLE `product_info`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `sub_category`
+-- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
   MODIFY `sub_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `user_info`
+-- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
