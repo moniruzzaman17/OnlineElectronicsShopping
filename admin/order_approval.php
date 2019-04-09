@@ -33,7 +33,7 @@
         <section>
             <table>
                 <caption>
-                    <h2>Order Approval Pannel</h2>
+
                 </caption>
                 <tr class="first_tr" style=" word-wrap: break-word;">
                     <th  >Sl</th>
@@ -62,8 +62,8 @@
                     <td><?php echo $row['transaction_id']; ?></td>
                     
 
-                    <td class="apr_btn"><a href="order_approval.php?approve=<?php echo $row['order_id']; ?>">Approve</a></td>
-                    <td class="apr_btn"><a href="order_approval.php?reject=<?php echo $row['order_id']; ?>">Reject</a></td>
+                    <td class="apr_btn"><a href="admin_dashboard.php?add_o_ntf=<?php echo md5("5"); ?>&approve=<?php echo $row['order_id']; ?>">Approve</a></td>
+                    <td class="apr_btn"><a href="admin_dashboard.php?add_o_ntf=<?php echo md5("5"); ?>&reject=<?php echo $row['order_id']; ?>">Reject</a></td>
                     
                     <td><a href=""><a style="text-decoration: none;" href="" onclick="MyWindow=window.open('indivisual_order_details.php?order_id=<?php echo $row['order_id']; ?>', 'MyWindow', 'width=800, height=700'); return false;">Details</a></a></td>
                 </tr>
@@ -76,19 +76,32 @@
                     $sql="UPDATE order_details SET approve_status=1 WHERE order_id='$oid'";
                     $sql2="UPDATE order_item SET approve_status=1 WHERE order_id='$oid'";
 
-                    $result= mysqli_query($sql);
-                    $result2= mysqli_query($sql2);
 
-                    if ($result && $result2) {
-                        echo "<script>alert('');</script>";
+
+                    if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+                        $_SESSION['app_status']="Order has been approved";
+
+                        echo "<script>alert('Order is Approved'); window.location='admin_dashboard.php?add_o_ntf=<?php echo md5(5); ?>'</script>";
                     }
                 }
                 if (isset($_GET['reject'])) {
                     $oid=$_GET['reject'];
+
+                    $sql="DELETE FROM order_details WHERE order_id='$oid'";
+                    $sql2="DELETE FROM order_item WHERE order_id='$oid'";
+
+
+
+                    if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+                        $_SESSION['app_status']="Order has been approved";
+
+                        echo "<script>alert('Order is Cancled'); window.location='admin_dashboard.php?add_o_ntf=<?php echo md5(5); ?>'</script>";
+                    }
                 }
                 ?>
             </table>
         </section>
+        <!-- <?php // unset($_SESSION['app_status']); ?> -->
     </body>
 </html>
 

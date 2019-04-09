@@ -10,7 +10,7 @@
 	<!-- link to the css -->
 	<link rel="stylesheet" href="css/index.css">
 </head>
-<body>
+<body style="margin: 0; overflow: hidden;">
 	<div class="co_container">
 		<div class="co_notice_box">
 			<h1 style="text-align: center;">Your Order is Pending for Review <br> thank you</h1>

@@ -132,7 +132,7 @@
 
 	function get_order_approval_info()
 	{
-		$sql = "SELECT * FROM order_details ORDER BY order_id DESC";
+		$sql = "SELECT * FROM order_details WHERE approve_status=0 ORDER BY order_id DESC";
 		$result=query($sql);
 		return $result;
 	}
