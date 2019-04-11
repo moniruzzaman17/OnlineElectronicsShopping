@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2019 at 01:57 PM
+-- Generation Time: Apr 11, 2019 at 10:06 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.27
 
@@ -142,12 +142,12 @@ CREATE TABLE `product_info` (
 --
 
 INSERT INTO `product_info` (`p_id`, `product_name`, `product_category`, `product_sub_category`, `product_details`, `quantity`, `product_price`, `product_image`) VALUES
-(1, 'Samsung 32\" LED TV', 'Television', 'LED TV', 'This is 32 inch Samsung LED Television, brand new 5 year warranty.', 2, 14000, '91hQL+d6bML._SX425_.jpg'),
-(2, 'V8 Smart Watch', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1500, 'v8 Smart Watch.jpg'),
-(3, 'C1 Smart Watch', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1200, 'c1 Smart Watch.jpg'),
-(4, 'CRT TV', 'Television', 'LCD TV', 'ব্র্যান্ড: DEIL\nটিভি মনিটরের সাথে রয়েছে ২ টি বিল্ট-ইন স্পীকার।\nডিসপ্লে সাইজঃ ২০ ইঞ্চি।\nকোন প্রকার নেগেটিভ লুক নেই।\nফুল HD পিকচার 1080 p (1366 x 766 প্রগ্রেসিভ স্ক্যান)\nডিজিটাল সাউন্ড সিস্টেম।\nপোর্টঃ USB/পেনড্রাইভ,VGA,HDMI,Audio,DVD\nআউটপুট/ tv ইনট্যাক্ট প্রোডাক্ট।\nকম্পিউটারের মনিটর হিসেবেও ব্যবহার করা যাবে।\nসকল পার্টস ১ বছরের রিপ্লেসমেন্ট গ্যারান্টিসহ মোট ২ বছর ওয়ারেন্টি।\nঢাকার মধ্যে ক্যাশ অন ডেলিভারী এবং অন্যত্র কুরিয়ার ডেলিভারী এক্ষেত্রে ৫০০ টাকা অগ্রীম প্রযোজ্য।', 5, 7500, 'item_XL_12124511_18306164.jpg'),
-(5, 'Digital Watch', 'Watch', 'Digital Watch', 'Black ion-plated stainless steel watch featuring round dial with world time for 39 cities, LCD display, and scrolling display mode\r\nQuartz movement with digital display\r\nMineral crystal dial window\r\nFeatures buckle closure, 14-character message display, calendar, 1/100-second stopwatch with memory recall, and countdown timer\r\nWater-resistant to 330 feet (100 M): suitable for snorkeling, as well as swimming, but not diving', 7, 2300, 'sswww.jpg'),
-(6, 'Headphone', 'Gadget', 'Head Phone', ' Headphones Over Ear Kids Headphones with Microphone Volume Control Lightweight with Detachable 3.5mm Cable for Smartphone Tablets Laptop (Black/Blue)', 6, 850, '715SbGPU6mL._SX355_.jpg');
+(1, 'Samsung LED Television', 'Television', 'LED TV', 'This is 32 inch Samsung LED Television, brand new 5 year warranty.', 5, 25000, '91hQL+d6bML._SX425_.jpg'),
+(2, 'Smart Watch V8', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 4, 1300, 'v8 Smart Watch.jpg'),
+(3, 'Smart Watch C1', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1400, 'c1 Smart Watch.jpg'),
+(4, 'LCD Television', 'Television', 'LCD TV', 'ব্র্যান্ড: DEIL\nটিভি মনিটরের সাথে রয়েছে ২ টি বিল্ট-ইন স্পীকার।\nডিসপ্লে সাইজঃ ২০ ইঞ্চি।\nকোন প্রকার নেগেটিভ লুক নেই।\nফুল HD পিকচার 1080 p (1366 x 766 প্রগ্রেসিভ স্ক্যান)\nডিজিটাল সাউন্ড সিস্টেম।\nপোর্টঃ USB/পেনড্রাইভ,VGA,HDMI,Audio,DVD\nআউটপুট/ tv ইনট্যাক্ট প্রোডাক্ট।\nকম্পিউটারের মনিটর হিসেবেও ব্যবহার করা যাবে।\nসকল পার্টস ১ বছরের রিপ্লেসমেন্ট গ্যারান্টিসহ মোট ২ বছর ওয়ারেন্টি।\nঢাকার মধ্যে ক্যাশ অন ডেলিভারী এবং অন্যত্র কুরিয়ার ডেলিভারী এক্ষেত্রে ৫০০ টাকা অগ্রীম প্রযোজ্য।', 5, 11000, 'item_XL_12124511_18306164.jpg'),
+(5, 'Digital Watch', 'Watch', 'Digital Watch', 'Black ion-plated stainless steel watch featuring round dial with world time for 39 cities, LCD display, and scrolling display mode\r\nQuartz movement with digital display\r\nMineral crystal dial window\r\nFeatures buckle closure, 14-character message display, calendar, 1/100-second stopwatch with memory recall, and countdown timer\r\nWater-resistant to 330 feet (100 M): suitable for snorkeling, as well as swimming, but not diving', 5, 850, 'sswww.jpg'),
+(6, 'Head Phone', 'Gadget', 'Head Phone', ' Headphones Over Ear Kids Headphones with Microphone Volume Control Lightweight with Detachable 3.5mm Cable for Smartphone Tablets Laptop (Black/Blue)', 2, 350, '715SbGPU6mL._SX355_.jpg');
 
 -- --------------------------------------------------------
 
@@ -268,13 +268,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_info`
