@@ -5,31 +5,29 @@
         <title>Product Information</title>
         <style>
             table{
-                width:1000px;
+                width:80%;
                 margin:auto;
                 text-align:center;
                 table-layout:fixed;
             }
-            table, tr, th, td{
+            table{
                 padding:20px;
-                color:white;
+                color:black;
                 border:1px solid #a6d8a8;
                 border-collapse:collapse;
                 font-size:18px;
                 font-family:Arial;
-                background:linear-gradient(top, #4caf50 0%, #4caf50 100%);
-                background:-webkit-linear-gradient(top, #4caf50 0%, #4caf50 100%);
             }
-            table, .n_hv:hover td{
+            .n_hv:hover td{
                 background:#e83f33;
                 
             }
 
-            td{
-                background:linear-gradient(top, #95d097 0%, #95d097 100%);
-                background:-webkit-linear-gradient(top, #95d097 0%, #95d097 100%);
-                
+            .n_hv{
+                background: #6FC576;
             }
+
+
             h2{
                 font-size: 2em;
                 color:black;
@@ -87,7 +85,23 @@
                 <?php
                 $result=get_product_info();
                 $sl=1;
-                while ($row=mysqli_fetch_array($result)) { ?>
+                while ($row=mysqli_fetch_array($result)) {
+                if ($row['quantity']<=2) { ?>
+                    <tr style="background: #E83F33;">
+                        <td><?php echo $sl++; ?></td>
+                        <td><?php echo $row['p_id']; ?></td>
+                        <td><?php echo $row['product_name']; ?></td>
+                        <td><?php echo $row['quantity']; ?></td>
+                        <td><?php echo $row['product_price']; ?></td>
+                        <td><?php echo $row['product_category']; ?></td>
+                        <td><?php echo $row['product_sub_category']; ?></td>
+                        <td><a style="text-decoration: none;" href="admin_dashboard.php?p_info=<?php echo md5("6"); ?>&id=<?php echo $row['p_id']; ?>">edit</a></td>
+                        
+                    </tr>
+                <?php
+                }
+                else
+                { ?>
                     <tr>
                         <td><?php echo $sl++; ?></td>
                         <td><?php echo $row['p_id']; ?></td>
@@ -100,6 +114,7 @@
                         
                     </tr>
                 <?php
+                }
                 }
                 ?>
             </table>

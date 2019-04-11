@@ -154,7 +154,7 @@
 
 	function get_product_info()
 	{
-		$sql = "SELECT * FROM product_info";
+		$sql = "SELECT * FROM product_info ORDER BY quantity ASC";
 		$result=query($sql);
 		return $result;
 	}
