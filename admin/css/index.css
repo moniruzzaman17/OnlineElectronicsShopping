@@ -770,7 +770,7 @@
 .db_side_bar{
 	float: left;
 	width: 20%;
-	background-color: #6FC576;
+	/*background-color: #6FC576;*/
 	padding: 1%;
 	padding-right: 4%;
 	box-shadow:  0 0 10px  rgba(0,0,0,0.7);

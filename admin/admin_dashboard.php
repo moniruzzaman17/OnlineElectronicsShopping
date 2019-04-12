@@ -6,6 +6,29 @@
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        .dh_row{
+            width: 100%;
+            float: left;
+            margin-bottom: 1%;
+            margin-left: 5%
+        }
+
+        .dh_col{
+            width: 50%;
+            float: left;
+
+        }
+
+        .dh_box{
+            box-shadow: 0 8px 6px -6px black;
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+        }
+
+
+    </style>
 </head>
 <body>
     <div class="ad_container">
@@ -24,7 +47,7 @@
             <div class="db_page_container">
                 <?php
                     if (isset($_GET['dashboard'])) {
-                        # code...
+                        include 'dashboard_home.php';
                     }
                     elseif (isset($_GET['add_product'])) {
                         include 'insert_product.php';
@@ -41,7 +64,13 @@
                     elseif (isset($_GET['p_info'])) {
                         include 'product_info.php';
                     }
+                    else
+                    {
+                        include 'dashboard_home.php';
+                    }
+
                 ?>
+
             </div>
         </div>
     </div>
