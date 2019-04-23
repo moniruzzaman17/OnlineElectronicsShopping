@@ -27,12 +27,14 @@
 				<h2>Online Electronics Shopping</h2>
 			</div>
 			<div class="search_div">
-				<div class="search_box">
-					<input type="text" name="" placeholder="search keyword">
-				</div>
-				<div class="search_btn">
-					<button>Search</button>
-				</div>
+				<form style="height: 100%;" action="search_catelog.php" method="post">
+					<div class="search_box">
+						<input type="text" name="keyword" placeholder="search keyword">
+					</div>
+					<div class="search_btn">
+						<button>Search</button>
+					</div>
+				</form>
 			</div>
 			<div class="cart_div">
 				<div class="cart_container">

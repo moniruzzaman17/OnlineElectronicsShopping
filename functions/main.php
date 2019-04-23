@@ -217,4 +217,13 @@
 		return $oid;
 	}
 
+	function get_search_item($search_key)
+	{
+		// $sql 		= "SELECT * FROM product_info WHERE product_name='$search_key' OR product_category='$search_key'OR product_sub_category='$search_key' OR p_id='$search_key'";
+
+		$sql 		= "SELECT * FROM product_info WHERE product_name LIKE'%$search_key%' OR product_category LIKE '%$search_key%' OR product_sub_category LIKE '%$search_key%' OR p_id='$search_key'";
+		$result		=query($sql);
+		return $result;
+	}
+
 ?>
