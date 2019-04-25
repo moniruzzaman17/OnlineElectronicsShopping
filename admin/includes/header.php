@@ -74,8 +74,8 @@
 				<ul>
 					<?php 
 						if ($loged==true) { ?>
-				  	<li><a class="active" href="index.php">Home</a></li>
-				  	<li><a href="#about">Profile</a></li>
+				  	<li><a class="active" href="admin_dashboard.php">Home</a></li>
+				  	<li><a href="ad_profile.php">Profile</a></li>
 						<?php
 						}
 					?>

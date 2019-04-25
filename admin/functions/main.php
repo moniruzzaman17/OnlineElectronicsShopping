@@ -47,6 +47,7 @@
 
 				if ($password==$pass && $u_id==$id_or_mail || $email==$id_or_mail) {
 					$_SESSION['admin_loged']=true;
+					$_SESSION['current_admin_uid_or_mail']=$id_or_mail;
 
 						echo "<script>window.location='admin_dashboard.php'</script>";
 				}
@@ -56,6 +57,19 @@
 				}
 			}
 		}
+	}
+
+	// get current admin ID
+	function current_admin_id()
+	{
+		$id_mail=$_SESSION['current_admin_uid_or_mail'];
+
+		$sql 		= "SELECT * FROM admin WHERE admin_id='$id_mail' OR email='$id_mail'";
+		$result		=query($sql);
+		$row		=fetch_array($result);
+		$admin_id 	=$row['admin_id'];
+		return $admin_id;
+
 	}
 
 	// get category function
@@ -157,6 +171,15 @@
 		$sql = "SELECT * FROM product_info ORDER BY quantity ASC";
 		$result=query($sql);
 		return $result;
+	}
+
+	function get_current_admin_info()
+	{
+		$admin_id=current_admin_id();
+		$sql = "SELECT * FROM admin WHERE admin_id='$admin_id'";
+		$result=query($sql);
+		$row=fetch_array($result);
+		return $row;
 	}
 
 ?>
