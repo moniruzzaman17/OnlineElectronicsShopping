@@ -73,13 +73,35 @@
                 if (isset($_GET['approve'])) {
                     $oid=$_GET['approve'];
 
+                    $cus_row= get_orderd_customer_info($oid);
+                    $result=get_ordered_product_quantity($oid);
+
+
+                    $email= $cus_row['email'];
+                    $cus_name= $cus_row['name'];
+                    $subject="Order notification";
+
+                    $message="Dear {$cus_name}, \nYour Order has been approved. \norder ID: {$oid}";
+                    $headers="From: Online Shopping System";
+
+
                     $sql="UPDATE order_details SET approve_status=1 WHERE order_id='$oid'";
                     $sql2="UPDATE order_item SET approve_status=1 WHERE order_id='$oid'";
 
 
 
                     if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-                        $_SESSION['app_status']="Order has been approved";
+                        // $_SESSION['app_status']="Order has been approved";
+                        send_email($email,$subject,$message,$headers);
+                        while ($qty_row =fetch_array($result)) {
+                            $product_id =$qty_row['product_id'];
+                            $sold_qty   =$qty_row['quantity'];
+
+                            $sql_update="UPDATE product_info SET quantity=(quantity-'$sold_qty') WHERE p_id='$product_id'";
+                            query($sql_update);
+
+                        }
+
 
                         echo "<script>alert('Order is Approved'); window.location='admin_dashboard.php?add_o_ntf=<?php echo md5(5); ?>'</script>";
                     }
@@ -93,7 +115,7 @@
 
 
                     if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-                        $_SESSION['app_status']="Order has been approved";
+                        // $_SESSION['app_status']="Order has been approved";
 
                         echo "<script>alert('Order is Cancled'); window.location='admin_dashboard.php?add_o_ntf=<?php echo md5(5); ?>'</script>";
                     }

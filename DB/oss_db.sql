@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 11, 2019 at 10:06 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.1.27
+-- হোষ্ট: 127.0.0.1
+-- তৈরী করতে ব্যবহৃত সময়: এপ্রি 26, 2019 at 09:28 PM
+-- সার্ভার সংস্করন: 10.1.31-MariaDB
+-- পিএইছপির সংস্করন: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `oss_db`
+-- ডাটাবেইজ: `oss_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- টেবলের জন্য টেবলের গঠন `admin`
 --
 
 CREATE TABLE `admin` (
@@ -38,16 +38,17 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin`
+-- টেবলের জন্য তথ্য স্তুপ করছি `admin`
 --
 
 INSERT INTO `admin` (`id`, `admin_name`, `admin_id`, `email`, `password`, `contact_num`) VALUES
-(1, 'Asha Moni', 'asha123', 'asha123@gmail.com', '123456', '01574125411');
+(1, 'Asha Moni', 'asha123', 'moon199715@gmail.com', '123', '01574125411'),
+(3, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- টেবলের জন্য টেবলের গঠন `category`
 --
 
 CREATE TABLE `category` (
@@ -56,7 +57,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `category`
+-- টেবলের জন্য তথ্য স্তুপ করছি `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
@@ -69,7 +70,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- টেবলের জন্য টেবলের গঠন `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -85,18 +86,19 @@ CREATE TABLE `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `order_details`
+-- টেবলের জন্য তথ্য স্তুপ করছি `order_details`
 --
 
 INSERT INTO `order_details` (`order_id`, `order_date`, `cus_id`, `cus_name`, `ship_address`, `payment_type`, `transaction_id`, `total_amount`, `approve_status`) VALUES
 (1, '2019-03-26', 'moon199715', 'Md. Moniruzzaman', 'Uttara, Dhaka', 'cash on delivery', 'N/A', 890, 0),
 (2, '2019-03-26', 'moon199715', 'Md. Moniruzzaman', 'Uttara, Dhaka', 'B-Kash', 'XIGH1S2', 4740, 0),
-(3, '2019-03-26', 'moon199715', 'Md. Moniruzzaman', 'Uttara, Dhaka', 'B-Kash', 'NT10TIX', 14040, 0);
+(3, '2019-03-26', 'moon199715', 'Md. Moniruzzaman', 'Uttara, Dhaka', 'B-Kash', 'NT10TIX', 14040, 1),
+(4, '2019-04-26', 'moon199715', 'Md. Moniruzzaman', 'Uttara, Dhaka', 'cash on delivery', 'N/A', 440, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_item`
+-- টেবলের জন্য টেবলের গঠন `order_item`
 --
 
 CREATE TABLE `order_item` (
@@ -111,19 +113,20 @@ CREATE TABLE `order_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `order_item`
+-- টেবলের জন্য তথ্য স্তুপ করছি `order_item`
 --
 
 INSERT INTO `order_item` (`oitem_id`, `order_id`, `product_id`, `product_name`, `quantity`, `unit_price`, `sub_total`, `approve_status`) VALUES
 (1, '1', '6', 'Headphone', 1, 850, 850, 0),
 (2, '2', '3', 'C1 Smart Watch', 2, 1200, 2400, 0),
 (3, '2', '5', 'Digital Watch', 1, 2300, 2300, 0),
-(4, '3', '1', 'Samsung 32\" LED TV', 1, 14000, 14000, 0);
+(4, '3', '1', 'Samsung 32\" LED TV', 1, 14000, 14000, 1),
+(5, '4', '6', 'Head Phone', 1, 400, 400, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_info`
+-- টেবলের জন্য টেবলের গঠন `product_info`
 --
 
 CREATE TABLE `product_info` (
@@ -138,21 +141,21 @@ CREATE TABLE `product_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `product_info`
+-- টেবলের জন্য তথ্য স্তুপ করছি `product_info`
 --
 
 INSERT INTO `product_info` (`p_id`, `product_name`, `product_category`, `product_sub_category`, `product_details`, `quantity`, `product_price`, `product_image`) VALUES
-(1, 'Samsung LED Television', 'Television', 'LED TV', 'This is 32 inch Samsung LED Television, brand new 5 year warranty.', 5, 25000, '91hQL+d6bML._SX425_.jpg'),
+(1, 'Samsung LED Television', 'Television', 'LED TV', 'This is 32 inch Samsung LED Television, brand new 5 year warranty.', 4, 14000, '91hQL+d6bML._SX425_.jpg'),
 (2, 'Smart Watch V8', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 4, 1300, 'v8 Smart Watch.jpg'),
 (3, 'Smart Watch C1', 'Watch', 'Smart Watch', 'Display: 1.54\" Full touch screen\r\nSD Card up to 64GB\r\nCalculator, Super soft rubber band\r\nDeluxe rubber material is refined, comfortable for extended wear\r\nResolution: High Quality\r\nRound Shape Smartwatch Mobile', 5, 1400, 'c1 Smart Watch.jpg'),
 (4, 'LCD Television', 'Television', 'LCD TV', 'ব্র্যান্ড: DEIL\nটিভি মনিটরের সাথে রয়েছে ২ টি বিল্ট-ইন স্পীকার।\nডিসপ্লে সাইজঃ ২০ ইঞ্চি।\nকোন প্রকার নেগেটিভ লুক নেই।\nফুল HD পিকচার 1080 p (1366 x 766 প্রগ্রেসিভ স্ক্যান)\nডিজিটাল সাউন্ড সিস্টেম।\nপোর্টঃ USB/পেনড্রাইভ,VGA,HDMI,Audio,DVD\nআউটপুট/ tv ইনট্যাক্ট প্রোডাক্ট।\nকম্পিউটারের মনিটর হিসেবেও ব্যবহার করা যাবে।\nসকল পার্টস ১ বছরের রিপ্লেসমেন্ট গ্যারান্টিসহ মোট ২ বছর ওয়ারেন্টি।\nঢাকার মধ্যে ক্যাশ অন ডেলিভারী এবং অন্যত্র কুরিয়ার ডেলিভারী এক্ষেত্রে ৫০০ টাকা অগ্রীম প্রযোজ্য।', 5, 11000, 'item_XL_12124511_18306164.jpg'),
 (5, 'Digital Watch', 'Watch', 'Digital Watch', 'Black ion-plated stainless steel watch featuring round dial with world time for 39 cities, LCD display, and scrolling display mode\r\nQuartz movement with digital display\r\nMineral crystal dial window\r\nFeatures buckle closure, 14-character message display, calendar, 1/100-second stopwatch with memory recall, and countdown timer\r\nWater-resistant to 330 feet (100 M): suitable for snorkeling, as well as swimming, but not diving', 5, 850, 'sswww.jpg'),
-(6, 'Head Phone', 'Gadget', 'Head Phone', ' Headphones Over Ear Kids Headphones with Microphone Volume Control Lightweight with Detachable 3.5mm Cable for Smartphone Tablets Laptop (Black/Blue)', 2, 350, '715SbGPU6mL._SX355_.jpg');
+(6, 'Head Phone', 'Gadget', 'Head Phone', ' Headphones Over Ear Kids Headphones with Microphone Volume Control Lightweight with Detachable 3.5mm Cable for Smartphone Tablets Laptop (Black/Blue)', 1, 400, '715SbGPU6mL._SX355_.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sub_category`
+-- টেবলের জন্য টেবলের গঠন `sub_category`
 --
 
 CREATE TABLE `sub_category` (
@@ -162,7 +165,7 @@ CREATE TABLE `sub_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sub_category`
+-- টেবলের জন্য তথ্য স্তুপ করছি `sub_category`
 --
 
 INSERT INTO `sub_category` (`sub_category_id`, `category_id`, `sub_category_name`) VALUES
@@ -181,7 +184,7 @@ INSERT INTO `sub_category` (`sub_category_id`, `category_id`, `sub_category_name
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_info`
+-- টেবলের জন্য টেবলের গঠন `user_info`
 --
 
 CREATE TABLE `user_info` (
@@ -195,101 +198,101 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user_info`
+-- টেবলের জন্য তথ্য স্তুপ করছি `user_info`
 --
 
 INSERT INTO `user_info` (`id`, `name`, `user_id`, `password`, `email`, `contact_num`, `address`) VALUES
 (1, 'Asha Moni', 'asha123', '123456', 'asha123@gmail.com', '0151245887451', 'Mohakhali, Dhaka'),
-(2, 'Md. Moniruzzaman', 'moon199715', '123456', 'moon199715@yahoo.com', '01761189963', 'Uttara, Dhaka');
+(2, 'Md. Moniruzzaman', 'moon199715', '123456', 'moon199715@gmail.com', '01761189963', 'Uttara, Dhaka');
 
 --
--- Indexes for dumped tables
+-- স্তুপকৃত টেবলের ইনডেক্স
 --
 
 --
--- Indexes for table `admin`
+-- টেবিলের ইনডেক্সসমুহ `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category`
+-- টেবিলের ইনডেক্সসমুহ `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `order_details`
+-- টেবিলের ইনডেক্সসমুহ `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Indexes for table `order_item`
+-- টেবিলের ইনডেক্সসমুহ `order_item`
 --
 ALTER TABLE `order_item`
   ADD PRIMARY KEY (`oitem_id`);
 
 --
--- Indexes for table `product_info`
+-- টেবিলের ইনডেক্সসমুহ `product_info`
 --
 ALTER TABLE `product_info`
   ADD PRIMARY KEY (`p_id`);
 
 --
--- Indexes for table `sub_category`
+-- টেবিলের ইনডেক্সসমুহ `sub_category`
 --
 ALTER TABLE `sub_category`
   ADD PRIMARY KEY (`sub_category_id`);
 
 --
--- Indexes for table `user_info`
+-- টেবিলের ইনডেক্সসমুহ `user_info`
 --
 ALTER TABLE `user_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- স্তুপকৃত টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `category`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `category`
 --
 ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `order_details`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `order_item`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `product_info`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `product_info`
 --
 ALTER TABLE `product_info`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `sub_category`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `sub_category`
 --
 ALTER TABLE `sub_category`
   MODIFY `sub_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `user_info`
+-- টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) `user_info`
 --
 ALTER TABLE `user_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

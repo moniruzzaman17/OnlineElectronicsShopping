@@ -257,4 +257,11 @@
 		return mail($email,$subject,$msg,$header);
 	}
 
+	function get_ordered_product_quantity($oid)
+	{
+		$sql="SELECT * FROM order_item WHERE order_id='$oid'";
+		$result=query($sql);
+		return $result;
+	}
+
 ?>
