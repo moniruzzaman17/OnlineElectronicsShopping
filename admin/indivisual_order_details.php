@@ -5,7 +5,6 @@
         <title>Order Details</title>
         <style>
             body{
-                background:LightGray;
 
             }
             .first, .first th{

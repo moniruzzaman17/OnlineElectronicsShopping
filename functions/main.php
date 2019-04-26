@@ -243,4 +243,10 @@
 		return $result;
 	}
 
+	function send_email($email,$subject,$msg,$header)
+	{
+		return mail($email,$subject,$msg,$header);
+	}
+
+
 ?>

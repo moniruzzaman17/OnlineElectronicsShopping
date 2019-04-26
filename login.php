@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 	include 'functions/init.php';
 	if (isset($_GET['oss'])) {
 		login($_GET['oss']);

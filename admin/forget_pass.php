@@ -9,7 +9,7 @@
 
 	<!--Internal CSS for forget pass main-->
 	<style>
-		
+
 	</style>
 </head>
 <body>
@@ -31,7 +31,7 @@
 
 <!-- Main Container -->
 	<div class="container">
-		<div class="info_div">
+		<div class="info_div" style="width: 40%; margin: 9% 33%;">
 			<h2 align="center">To Reset your Password Please varify your Email</h2> 
 <?php
 include 'functions/init.php';
@@ -93,14 +93,14 @@ $or_code=$_SESSION['or_code'];
 if (isset($_POST['update'])) {
 	$new_pass=$_POST['new_pass'];
 	$email=$_SESSION['email'];
-$sql=mysqli_query($conn, "SELECT * FROM user_info WHERE email='$email'");
+$sql=mysqli_query($conn, "SELECT * FROM admin WHERE email='$email'");
 	$row=mysqli_fetch_array($sql);
 
 	if ($row['email']==$email) {
-		$update_user="UPDATE user_info SET password='$new_pass' WHERE email='$email'";
+		$update_user="UPDATE admin SET password='$new_pass' WHERE email='$email'";
 		if (query($update_user)) {
 			session_destroy();
-			echo "<script>alert('Your password has been Updated'); window.location='login.php'</script>";
+			echo "<script>alert('Your password has been Updated'); window.location='index.php'</script>";
 		}
 	}
 }
@@ -108,10 +108,10 @@ $sql=mysqli_query($conn, "SELECT * FROM user_info WHERE email='$email'");
 
 
 		</div>
-
 <center>
-		<a href="login.php">BACK</a>
+		<a href="index.php">BACK</a>
 </center>
+
 	</div>  <!-- End of the Container -->
 	<?php include 'includes/footer.php'; ?>
 </body>
