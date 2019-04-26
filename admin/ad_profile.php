@@ -50,7 +50,7 @@
                         include 'update_admin.php';
                     }
                     elseif (isset($_GET['add_admin'])) {
-                        // include '';
+                        include 'add_admin.php';
                     }
                     else
                     {

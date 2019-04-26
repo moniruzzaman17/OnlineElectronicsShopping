@@ -44,6 +44,13 @@
 		    		<input type="text" placeholder="Enter Full Name" name="name" pattern="^[A-Z][ a-zA-Z]+$" title="First Letter must be upper case and only space and characters are allowed" required>
 
 				    <label><b>Username</b></label>
+		              <?php
+		                if (isset($_SESSION['msg'])) { ?>
+		                  <p style="color: red;"><?php echo $_SESSION['msg']; ?></p>
+		                <?php
+		                unset($_SESSION['msg']);
+		                }
+		              ?>
 		    		<input type="text" placeholder="Enter Username" name="user_id" pattern="^[a-z][a-z_]{1,20}[0-9]{1,15}$" title="start with at least 2 lower case and end with number, allowed only a-z,_,0-9" required>
 
 		    		<label><b>Password</b></label>
@@ -53,7 +60,7 @@
 		    		<input type="text" placeholder="Enter a valid Email" name="mail" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" title="Make sure a valid mail address" required>
 
 				    <label><b>Contact Number</b></label>
-		    		<input type="text" placeholder="Enter phone number" name="contact" pattern="^[0-9]" title="Only accept numarical value" required>
+		    		<input type="text" placeholder="Enter phone number" name="contact" pattern="^[0-9]{11}" title="Only accept numarical value with 11 numarical value" required>
 
 				    <label><b>Address</b></label>
 		    		<input type="text" placeholder="shipping address" name="address" required>

@@ -13,17 +13,34 @@
 		$address			=	$_POST['address'];
 		$status				=	"user";
 
-		$sql= "INSERT INTO user_info(name,user_id,password,email,contact_num,address,status)";
-			$sql.=" VALUES('$name','$user_id','$pass','$mail','$contact','$address', '$status')";
 
-		$result=query($sql);
-		if ($result) {
-			echo "<script>alert('You are Successfully registered!!'); window.location='login.php'</script>";
-		}
+	    $u_id_exist=false;
 
-		else {
-			echo "<script>alert('Comment is not Successfully Submitted'); window.location='p_location.php'</script>";
-		}
+	    $sql_check="SELECT * FROM user_info";
+	    $check_id_query=query($sql_check);
+	    while ($row=fetch_array($check_id_query)) {
+
+	      if ($row['user_id']==$user_id) {
+	          $u_id_exist=true;
+	      }
+	    }
+	    if ($u_id_exist==true) {
+	        $_SESSION['msg'] = "**Entered user id already taken, Choose another one**";
+	    }
+	    else
+	    {
+			$sql= "INSERT INTO user_info(name,user_id,password,email,contact_num,address,status)";
+				$sql.=" VALUES('$name','$user_id','$pass','$mail','$contact','$address', '$status')";
+
+			$result=query($sql);
+			if ($result) {
+				echo "<script>alert('You are Successfully registered!!'); window.location='login.php'</script>";
+			}
+
+			else {
+				echo "<script>alert('Comment is not Successfully Submitted'); window.location='p_location.php'</script>";
+			}
+	    }
 	}
 	}
 

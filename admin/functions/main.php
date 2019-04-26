@@ -182,4 +182,74 @@
 		return $row;
 	}
 
+	function update_admin_profile()
+	{
+		$admin_id=current_admin_id();
+		if ($_SERVER['REQUEST_METHOD']=="POST") {
+			if (isset($_POST['name_update_btn'])) {
+				$name=$_POST['name'];
+				$sql="UPDATE admin SET admin_name='$name' WHERE admin_id='$admin_id'";
+				$result=query($sql);
+				echo "<script>window.location='ad_profile.php?update_pro=1'</script>";
+
+			}
+			elseif (isset($_POST['mail_update_btn'])) {
+				$mail=$_POST['mail'];
+				$sql="UPDATE admin SET email='$mail' WHERE admin_id='$admin_id'";
+				$result=query($sql);
+				echo "<script>window.location='ad_profile.php?update_pro=1'</script>";
+
+			}
+			elseif (isset($_POST['cell_update_btn'])) {
+				$cell=$_POST['cell'];
+				$sql="UPDATE admin SET contact_num='$cell' WHERE admin_id='$admin_id'";
+				$result=query($sql);
+				echo "<script>window.location='ad_profile.php?update_pro=1'</script>";
+
+			}
+		}
+	}
+
+	function add_admin()
+	{
+		if ($_SERVER['REQUEST_METHOD']=="POST") {
+			if (isset($_POST['add_btn'])) {
+				$name		=	$_POST['name'];
+				$id			=	$_POST['user_id'];
+				$pass		=	$_POST['pass'];
+				$mail		=	$_POST['mail'];
+				$cell		=	$_POST['cell'];
+
+			    $u_id_exist=false;
+
+			    $sql_check="SELECT * FROM admin";
+			    $check_id_query=query($sql_check);
+			    while ($row=fetch_array($check_id_query)) {
+
+			      if ($row['admin_id']==$id) {
+			          $u_id_exist=true;
+			      }
+			    }
+			    if ($u_id_exist==true) {
+			        $_SESSION['msg'] = "**Entered user id already taken, Choose another one**";
+			    }
+			    else
+			    {
+					$sql= "INSERT INTO admin(admin_name, admin_id, email, password, contact_num)";
+						$sql.=" VALUES('$name','$id','$mail','$pass','$cell')";
+
+					$result=query($sql);
+					if ($result) {
+						unset($_SESSION['msg']);
+						echo "<script>alert('New Admin is Added'); window.location='ad_profile.php?add_admin=1'</script>";
+					}
+
+					else {
+						echo "<script>alert('Not Added!!'); window.location='ad_profile.php?add_admin=1'</script>";
+					}
+    			}
+			}
+		}
+	}
+
 ?>

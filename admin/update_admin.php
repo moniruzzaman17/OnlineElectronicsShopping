@@ -9,12 +9,17 @@
 			margin: auto;
 			padding: 1%;
 		}
+		.update_profile_container a{
+			float: right;
+			margin: 0% 17%;
+		}
 
 		.update_pro_table{
-			width: 50%;
+			width: 70%;
 			vertical-align: left;
 			border: none;
 			margin-left: 15%;
+			padding: 2%;
 
 		}
 
@@ -22,10 +27,12 @@
 
 		.update_pro_table th{
 			text-align: left;
+			padding: 3%;
 		}
 
 		.update_pro_table td{
 			text-align: left;
+			padding: 3%;
 		}
 
 		.update_pro_table td a{
@@ -36,8 +43,10 @@
 <body>
 	<?php
 		$row=get_current_admin_info();
+		update_admin_profile();
 	?>
 	<div class="update_profile_container">
+		<a href="ad_profile.php?update_pro=1">Refresh Page</a>
 		<table class="update_pro_table"  cellspacing="0" cellpadding="0">
 			<form action="" method="post">
 				<tr>
@@ -110,7 +119,7 @@
 						: 
 						<?php
 							if (isset($_GET['edit_cell'])) { ?>
-								<input type="text" name="mail" value="<?php echo $row['contact_num']; ?>">
+								<input type="text" name="cell" value="<?php echo $row['contact_num']; ?>">
 							<?php
 							}
 							else
