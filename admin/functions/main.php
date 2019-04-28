@@ -79,11 +79,26 @@
 		$result=query($sql);
 		return $result;
 	}
+	// get category descending function
+	function get_category_descending()
+	{
+		$sql = "SELECT * FROM category ORDER BY category_id DESC";
+		$result=query($sql);
+		return $result;
+	}
 
 	// get sub_category function
 	function get_sub_category()
 	{
 		$sql = "SELECT * FROM sub_category";
+		$result=query($sql);
+		return $result;
+	}
+
+	// get sub_category function
+	function get_sub_category_desc()
+	{
+		$sql = "SELECT * FROM sub_category ORDER BY sub_category_id DESC";
 		$result=query($sql);
 		return $result;
 	}
@@ -107,6 +122,7 @@
 	{
 		if ($_SERVER['REQUEST_METHOD']=="POST")
 		{
+			if (isset($_POST['button1'])) {
 				$category_name	=	$_POST['category_name'];
 
 				$sql= "INSERT INTO category(category_name)";
@@ -120,6 +136,7 @@
 				else {
 					echo "<script>alert('not added!!'); window.location='admin_dashboard.php?add_catg=eccbc87e4b5ce2fe28308fd9f2a7baf3'</script>";
 				}
+			}
 		}
 	}
 
@@ -127,6 +144,7 @@
 	{
 		if ($_SERVER['REQUEST_METHOD']=="POST")
 		{
+			if (isset($_POST['sub_button1'])) {
 				$category_id		=	$_POST['select1'];
 				$sub_category_name	=	$_POST['sub_category_name'];
 
@@ -141,6 +159,7 @@
 				else {
 					echo "<script>alert('not added!!'); window.location='admin_dashboard.php?add_sub_catg=a87ff679a2f3e71d9181a67b7542122c'</script>";
 				}
+			}
 		}
 	}
 
