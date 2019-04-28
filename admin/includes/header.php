@@ -55,11 +55,6 @@
 							</form>
 						<?php
 						}
-						else
-						{ ?>
-							<a href="login.php">Login</a>
-						<?php
-						}
 					?>
 					<!-- <button>Logout</button> -->
 				</div>
