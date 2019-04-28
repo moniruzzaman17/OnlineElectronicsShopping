@@ -20,11 +20,11 @@
 
 			$result=query($sql);
 			if ($result) {
-				echo "<script>alert('Product Successfully Added'); window.location='insert_product.php'</script>";
+				echo "<script>alert('Product Successfully Added'); window.location='admin_dashboard.php?add_product=c81e728d9d4c2f636f067f89cc14862c'</script>";
 			}
 
 			else {
-				echo "<script>alert('not submitted!!'); window.location='insert_product.php'</script>";
+				echo "<script>alert('not submitted!!'); window.location='admin_dashboard.php?add_product=c81e728d9d4c2f636f067f89cc14862c'</script>";
 			}
 	}
 	}
@@ -114,11 +114,11 @@
 
 				$result=query($sql);
 				if ($result) {
-					echo "<script>alert('Product Category Successfully Added'); window.location='insert_category.php'</script>";
+					echo "<script>alert('Product Category Successfully Added'); window.location='admin_dashboard.php?add_catg=eccbc87e4b5ce2fe28308fd9f2a7baf3'</script>";
 				}
 
 				else {
-					echo "<script>alert('not added!!'); window.location='insert_category.php'</script>";
+					echo "<script>alert('not added!!'); window.location='admin_dashboard.php?add_catg=eccbc87e4b5ce2fe28308fd9f2a7baf3'</script>";
 				}
 		}
 	}
@@ -135,11 +135,11 @@
 
 				$result=query($sql);
 				if ($result) {
-					echo "<script>alert('Sub-Category Successfully Added'); window.location='insert_sub_category.php'</script>";
+					echo "<script>alert('Sub-Category Successfully Added'); window.location='admin_dashboard.php?add_sub_catg=a87ff679a2f3e71d9181a67b7542122c'</script>";
 				}
 
 				else {
-					echo "<script>alert('not added!!'); window.location='insert_sub_category.php'</script>";
+					echo "<script>alert('not added!!'); window.location='admin_dashboard.php?add_sub_catg=a87ff679a2f3e71d9181a67b7542122c'</script>";
 				}
 		}
 	}
