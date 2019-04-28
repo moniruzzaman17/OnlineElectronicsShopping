@@ -11,7 +11,6 @@
 		$mail				=	$_POST['mail'];
 		$contact			=	$_POST['contact'];
 		$address			=	$_POST['address'];
-		$status				=	"user";
 
 
 	    $u_id_exist=false;
@@ -29,8 +28,8 @@
 	    }
 	    else
 	    {
-			$sql= "INSERT INTO user_info(name,user_id,password,email,contact_num,address,status)";
-				$sql.=" VALUES('$name','$user_id','$pass','$mail','$contact','$address', '$status')";
+			$sql= "INSERT INTO user_info(name,user_id,password,email,contact_num,address)";
+				$sql.=" VALUES('$name','$user_id','$pass','$mail','$contact','$address')";
 
 			$result=query($sql);
 			if ($result) {
@@ -38,7 +37,7 @@
 			}
 
 			else {
-				echo "<script>alert('Comment is not Successfully Submitted'); window.location='p_location.php'</script>";
+				echo "<script>alert('Information is not Submitted'); window.location='signup.php'</script>";
 			}
 	    }
 	}
@@ -53,22 +52,24 @@
 			$pass		=	$_POST['password'];
 
 			
-			$sql = "SELECT * FROM user_info WHERE password='$pass' AND user_id='$id_or_mail' OR email='$id_or_mail'";
+			$sql = "SELECT * FROM user_info WHERE password='$pass' AND (user_id='$id_or_mail' OR email='$id_or_mail')";
 			$result=query($sql);
-  			$row = fetch_array($result);
-  			$u_id=$row['user_id'];
-  			$email=$row['email'];
-  			$password=$row['password'];
+			if (mysqli_num_rows($result)>0) {
+	  			$row = fetch_array($result);
+	  			$u_id=$row['user_id'];
+	  			$email=$row['email'];
+	  			$password=$row['password'];
 
-			if ($password==$pass && $u_id==$id_or_mail || $email==$id_or_mail) {
-				$_SESSION['loged']=true;
-				$_SESSION['current_user_uid_or_mail']=$id_or_mail;
-				if ($check=="none") {
-					echo "<script>window.location='index.php'</script>";
-				}
-				else
-				{
-					echo "<script>window.location='order.php'</script>";	
+				if ($password==$pass && $u_id==$id_or_mail || $email==$id_or_mail) {
+					$_SESSION['loged']=true;
+					$_SESSION['current_user_uid_or_mail']=$id_or_mail;
+					if ($check=="none") {
+						echo "<script>window.location='index.php'</script>";
+					}
+					else
+					{
+						echo "<script>window.location='order.php'</script>";	
+					}
 				}
 			}
 
@@ -246,6 +247,52 @@
 	function send_email($email,$subject,$msg,$header)
 	{
 		return mail($email,$subject,$msg,$header);
+	}
+
+
+	function get_current_profile_info()
+	{
+		$user_id=current_userid();
+		$sql = "SELECT * FROM user_info WHERE user_id='$user_id'";
+		$result=query($sql);
+		$row=fetch_array($result);
+		return $row;
+	}
+
+
+	function update_user_profile()
+	{
+		$user_id=current_userid();
+		if ($_SERVER['REQUEST_METHOD']=="POST") {
+			if (isset($_POST['name_update_btn'])) {
+				$name=$_POST['name'];
+				$sql="UPDATE user_info SET name='$name' WHERE user_id='$user_id'";
+				$result=query($sql);
+				echo "<script>window.location='update_profile.php?update_pro=1'</script>";
+
+			}
+			elseif (isset($_POST['mail_update_btn'])) {
+				$mail=$_POST['mail'];
+				$sql="UPDATE user_info SET email='$mail' WHERE user_id='$user_id'";
+				$result=query($sql);
+				echo "<script>window.location='update_profile.php?update_pro=1'</script>";
+
+			}
+			elseif (isset($_POST['cell_update_btn'])) {
+				$cell=$_POST['cell'];
+				$sql="UPDATE user_info SET contact_num='$cell' WHERE user_id='$user_id'";
+				$result=query($sql);
+				echo "<script>window.location='update_profile.php?update_pro=1'</script>";
+
+			}
+			elseif (isset($_POST['add_update_btn'])) {
+				$cell=$_POST['address'];
+				$sql="UPDATE user_info SET address='$cell' WHERE user_id='$user_id'";
+				$result=query($sql);
+				echo "<script>window.location='update_profile.php?update_pro=1'</script>";
+
+			}
+		}
 	}
 
 

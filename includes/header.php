@@ -136,7 +136,7 @@
 				  <li>
 					<?php 
 						if ($loged==true) { ?>
-				  			<a href="#about">Profile</a>
+				  			<a href="update_profile.php">Profile</a>
 						<?php
 						}
 					?>

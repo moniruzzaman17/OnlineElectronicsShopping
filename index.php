@@ -33,12 +33,12 @@
 							 ?>
 							<li>
 								<div class="dropdown">
-									<a class="dropbtn" href="category_view.php?category_name=<?php echo $category_name; ?>"><?php echo $row['category_name']; ?></a>
+									<a class="dropbtn" href="category_view.php?category_name=<?php echo $row['category_name']; ?>"><?php echo $row['category_name']; ?></a>
 									<div class="dropdown-content">
 										<!-- making loop for showing all the sub category under the main category -->
 										<?php
 											while ($row_sub=mysqli_fetch_array($sub_result)) { ?>
-									  			<a href="category_view.php?category_name=<?php echo $sub_category_name; ?>"><?php echo $row_sub['sub_category_name']; ?></a>
+									  			<a href="category_view.php?sub_category_name=<?php echo $row_sub['sub_category_name']; ?>"><?php echo $row_sub['sub_category_name']; ?></a>
 											<?php
 											}
 										?>

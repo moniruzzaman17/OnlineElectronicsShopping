@@ -30,7 +30,7 @@
 					<td>
 						<textarea name="shipping_add" required><?php echo $row['address'] ?></textarea>
 					</td>
-					<td style="border: none; padding: 5%; text-align: center;">Make sure give the details shipping address <br> <small>like: House, Road, City, District etc.</small></td>
+					<td style="border: none; padding: 5%; text-align: center;">Make sure, you are giving propper details of shipping address <br> <small>like: House, Road, City, District etc.</small></td>
 				</tr>
 				<tr>
 					<th>Email Address:</th>
@@ -49,12 +49,12 @@
 			<table class="payment_table" style="border-top: 7px solid #4CAF50;">
 				<caption style="text-align: left;"><h3>Payment Method</h3></caption>
 				<tr style="width: 100%">
-					<th style="width: 50%"><input type="radio" name="p_method" onclick="show1();" value="cash on delivery" required>Cash On Delevery</th>
+					<th style="width: 50%"><input type="radio" name="p_method" onclick="show1();" value="cash on delivery" required>Cash On Delivery</th>
 					<th style="width: 50%"><input type="radio" name="p_method" onclick="show2();" id="bkash" required>Bkash</th>
 				</tr>
 				<tr style=" margin-bottom: 1%;">
 					<td colspan="2" style="display: none; width: 197.5%;" id="bkash_details">
-						<h4>B-Kash Marchant Account: 01761189963</h4>
+						<h4>BKash Marchant Account: 01761189963</h4>
 						<h4>Counter #: 1</h4>
 						<b>Enter Payment Transaction ID: </b><input type="text" id="transaction_id" name="transaction_id">
 					</td>
